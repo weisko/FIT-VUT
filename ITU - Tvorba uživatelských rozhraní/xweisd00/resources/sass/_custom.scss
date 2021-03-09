@@ -1,0 +1,169 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: $white !important;
+    color: $black !important;
+}
+
+.__height-100 {
+    height: 100%;
+}
+
+.__hover-white:hover {
+    color: $white !important;
+}
+
+.__max_height {
+    transform: scaleY(1) !important;
+    display: block !important;
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+    left: -0.250rem !important;
+}
+
+.__bg-main{
+    background-color: $secondary !important;
+}
+
+.__bg-main-light{
+    background-color: $main !important;
+}
+
+.__bg-mixed{
+    background-color: $main !important;
+    background: linear-gradient(45deg, $main 0%, $secondary 100%);
+}
+
+.__btn-info {
+    background-color: $main !important;
+}
+
+.__btn-outline-info {
+    border-color: $main !important;
+    &:hover {
+        background-color: $main;
+    }
+}
+
+.__btn-highlight {
+    background-color: $highlight !important;
+    color: #fff !important;
+    &:hover {
+        background-color: $highlight-dark !important;
+    } 
+}
+
+/***************************** INDEX ******************************************/
+
+#header {
+    height: 70vh;
+    overflow: hidden;
+    background-image: url('../images/tiles_blurred.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .__header-box {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-40%, -50%);
+        background-color: #f9f7f3;
+        color: #071c23;
+        width: 25rem;
+        h6 {
+            opacity: 0.7;
+        }
+    }
+   
+}
+
+#about {
+    
+    padding: 3rem 0;
+    h2 {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        &:after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 35px;
+            background-color: $white;
+            margin: 0.5rem auto 0 auto;
+        }
+    }
+    // .shadow {
+    //     box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15) !important;
+    // }
+    .col-md-3 {
+        opacity: 0;
+        border-radius: 0.3rem;
+        padding: 1.2rem;
+        margin-left: 1.5rem; 
+        margin-right: 1.5rem; 
+        transform: translateY(4em);
+        transition: all 0.5s;
+        height: auto;
+
+        .__circle {
+            margin: auto;
+            width: 7.7rem;
+            height: 7.7rem;
+            border: 2px solid $white;
+            border-radius: 50%;
+        }
+    }
+    .fas {
+        font-size: 5rem;
+    }
+}
+
+#about .is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#form {
+    padding: 3rem 0;
+    .__btn-highlight {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+#footer {
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
+    padding: 3rem 0;
+    // height: 12.5rem;
+    .container {
+        .main {
+            width: 80%;
+            margin: auto;
+            border: 2px solid $white;
+        }
+    }
+}
+
+/***************************** INDEX ******************************************/
+/***************************** PAYMENT ****************************************/
+
+.accordionContainer {
+    margin: 2em;
+    height: 25em;
+}
+
+#tatraPayButton {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#vubPayButton {
+    background-color: #F26F20;
+    color: #ffffff;
+}

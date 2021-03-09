@@ -1,0 +1,139 @@
+@media only screen and (min-width: 1300px) {
+    #header {
+        .right {
+            .__header-box {
+                width: 50%;
+                height: 50%;
+                top: 6rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly; 
+                h2 {
+                    font-size: 3.5rem;
+                }
+                h6 {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #header {
+        .right {
+            .__header-box {
+                width:50%;
+                top:1.5rem;
+                h2 {
+                    font-size: 2.7rem;
+                }
+                h6 {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #about {
+        .container {
+            margin: 0;
+            min-width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #footer {
+        .container {
+            .main {
+                width: 100%;
+                border: none;
+                text-align: center;
+            }
+        }
+    }
+    .row .__thirds {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #vehicles {
+        .__btn-vig {
+            text-align: left !important;
+        }
+    }
+    .navbar-nav .__nav-item {
+        display: block;
+        width: 80%;
+        margin: 0;
+        padding: 0.5rem 0;
+        text-align: center;
+        .btn {
+            width: 100%;
+        }
+    }
+    .navbar-nav .dropdown {
+        width: 80%;
+    }
+}
+
+
+
+@media only screen and (max-width: 490px) {
+    #header {
+        .__header-box {
+            width:90%;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 1.3rem !important; 
+            h2 {
+                font-size: 2.5rem;
+            }
+            h6 {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #about .col-md-3 {
+        h4 {
+            font-size: 1.3rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }
+    .__violation-row {
+        align-items: center;
+        justify-content: center;
+        .__violation-info {
+            flex-direction: column;
+        }
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    #header {
+        .__header-box {
+            // padding: 1rem;
+            h2 {
+                font-size: 1.2rem;
+            }
+            h6 {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 270px) {
+    h3 > button {
+        width: 100%;
+        margin: 0.5rem;
+    }
+}
