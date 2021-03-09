@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Projekt IIS</title>
+<style type="text/css">
+	table { border-collapse: collapse; }
+	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+	dt { font-weight: bold; margin-top: 0.5em; }
+</style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+ podle použitého editoru -->
+
+<h1>Sport - Informačný systém pre turnaje v stolnom tenise - Pong|Tourney</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+<dt>Autoři</dt>
+<dd>Richard Borbély <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	<a href="mailto:xborbe00@stud.fit.vutbr.cz">xborbe00@stud.fit.vutbr.cz</a> -
+	popis činnosti v týmu
+</dd>
+<dd>Daniel Weis<!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	<a href="mailto:xweisd00@stud.fit.vutbr.cz">xweisd00@stud.fit.vutbr.cz</a> - 
+	popis činnosti v týmu
+</dd>
+<dd>Jakub Novotný <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	<a href="mailto:xnovot1l@stud.fit.vutbr.cz">xnovot1l@stud.fit.vutbr.cz</a> - 
+	popis činnosti v týmu
+</dd>
+<dt>URL aplikace</dt>
+<dd><a href="http://pong-tourney.esystem.sk/public/">http://pong-tourney.esystem.sk/public/</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>refferee@pongtourney.com</td><td>refferee</td><td>Rozhodca</td></tr>
+<tr><td>admin@pongtourney.com</td><td>adminadmin</td><td>Administrátor</td></tr>
+<tr><td>player@pongtourney.com</td><td>playerplayer</td><td>Hráč (individuálny)</td></tr>
+<tr><td>captain@pongtourney.com</td><td>captaincaptain</td><td>Hráč (kapitán, zakladateľ tímu)</td></tr>
+<tr><td>teammate@pongtourney.com</td><td>teammate</td><td>Hráč (zaregistrovaný do tímu)</td></tr>
+<tr><td>organizer@pongtourney.com</td><td>organizer</td><td>Organizátor turnaja</td></tr>
+</table>
+
+<h2>Diagram prípadov užitia</h2>
+
+<a><img src="use_case.jpg"></a>
+
+<h2>Logika rolí</h2>
+<p> Logika rolí v našej implementácii je nasledovná: Zaregistrovaný užívateľ má vždy možnosť vytvoriť si vlastný tím alebo turnaj.
+	Takisto má stále možnosť zaregistrovať sa do hociktorého turnaja, ktorý sám nevytvoril, a to ako hráč, tak aj ako rozhodca.
+	Užívateľ teda môže byť usporiadateľom jedného turnaja, rozhodca druhého, hráč tretieho, no nemôže v týchto roliach byť v jednom turnaji zároveň.
+</p>
+
+<h2>Implementácia</h2>
+
+<div>
+		<p>Implementácia projektu je uskutočnená pomocou PHP frameworku Laravel. Laravel umožňuje jednoduchú prácu s architektúrou MVC. Táto architetúra nám
+				projekt rozdeľuje na databázu (model), kontroléry a pohľady (view).
+		</p>
+		<h4>Postup:</h4>
+		<ol>
+			<li>
+				Prvým krokom bola transformácia ER-diagramu na samotnú databázu, a to formou migrácií, v´daka ktorým sme do tabuliek naplnili potrebné atribúty.
+				Vzťahy medzi tabuľkami sme definovali pomocou databázových operácií ktoré Laravel ponúka (join, where, select...)
+			</li>
+			<li>
+				Následne sa vytvorili jednotlivé súbory (blade-y), ktoré slúžia na interpretovanie pohľadov (view). Tieto blade-y umožňuje Laravel naväzovať na seba
+				a jedným blade-om je možné rozšíriť druhý. Týmto spôsobom sa vrchné "menu" zachová na každej strane, bez ohľadu na jej obsah a bez nutnosti zbytočnej redundancie.
+			</li>
+			<li>
+				Na záver bolo treba prepojiť databázu a view, na čo nám slúžili kontroléry. Do nich sme naimplementovali jednotlivé funkcie, ktoré ťažia dáta zo samotnej
+				databázy a vracajú väčšinou práve pohľad na špecifický blade, do ktorého sa môžu predať údaje a to nám umožňuje pracovať s databázovými dátami rovno v pohľade.
+			</li>
+		</ol>
+
+		<p>
+			Na implementáciu dizajnu sme použili CSS framework Bootstrap 4.
+		</p>
+	</div>
+
+	<span>Popis niektorých php skrípt:</span>
+	<ul>
+		<li><i>sport\resources\views\auth\register.blade.php</i>: registrácia užívateľa</li>
+		<li><i>sport\resources\views\auth\login.blade.php</i>: prihlasovanie užívateľa</li>
+		<li><i>sport\resources\views\auth\... .php</i>: ďalšie skripty týkajúce sa prihlasovania</li>
+		<li><i>sport\resources\views\pages\home.blade.php</i>: domovská stránka</li>
+		<li><i>sport\resources\views\pages\team.blade.php</i>: súpiska registrovaných tímov</li>
+		<li><i>sport\database\migrations\create_tournaments_table.php</i>: vytvorenie tabulky "tournaments" v databázi</li>
+		<li><i>sport\database\migrations\... .php</i>: migrácie do databázy</li>
+    <li><i>sport\routes\... .php</i>: Routy, ktoré spájajú URL adresy s akciami, ktoré vykonávajú kontrolery</li>
+		<li><i>sport\.env</i>: konfigurácia prostredia (vrátane prihlásení do databáze)</li>
+	</ul>
+
+<h3>Databáza</h3>
+
+<a><img src="schema.png"></a>
+
+<p>
+	Relačný model je automaticky vygenerovaným modelom na základe používanej databázy. Obsahuje všetky vytvorené tabuľky a atribúty k nim. Na obrázku je možné vidieť, 
+	že tabuľka "matches" nie je vo vzťahu so žiadnou z ostatných tabuliek. Za touto "absenciou" vzťahu sú implementačné dôvody. Ak rozhodca pridáva zápas, dostáva možnosť
+	vybrať si z mien hráčov, ktorí sú do samotného turnaja zaregistrovaní a potvrdení jeho usporiadateľom. Priame spojenie medzi týmito tabuľkami neexistuje.
+</p>
+
+<h2>Inštalácia</h2>
+
+<ul>
+		<li>Postup inštalácie na server
+			<ol>
+				<li>Nahranie celého projektu na server (obsah adresára ./src/)</li>
+				<li>Úprava konfiguračného súboru '/.env'(databázové pripojenie, projektové premenné)</li>
+				<li>Pridanie súboru index.php do root adresára s presmerovním cesty '/' na '/public/index.php'</li>
+				<li>V prípade nefunkčnosti niektorých častí aplikácie, upraviť odkazy v kóde na '/public/*'</li>
+			</ol>
+		</li>
+		<li>Softwarové požiadavky
+			<ol>
+				<li>PHP >= 7.2.0</li>
+				<li>PHP Framework Laravel v6.4</li>
+				<li>CSS Framework Bootstrap v4</li>
+				<li>[XAMPP - vytvorenie lokálneho Apache, MySQL serveru pre testovanie na 'localhost']</li>
+				<li>[Composer https://getcomposer.org -- Balíčkovací manažér pre PHP]</li>
+			</ol>
+		</li>
+		<li>Rozbalenie, konfigurácia, inicializácia...
+			<ol>
+				<li>Rozbaliť odovzdaný .zip archív.</li>
+				<li>Vytvoriť nový Laravel projekt 'composer create-project laravel/laravel project_name.</li>
+				<li>Vložit obsah adresára './src/' do adresára '/' vytvoreného projektu.</li>
+				<li>Cez phpMyAdmin importovať databázu cez sql skript('./iis.sql')</li>
+				<li>Vyplniť korektné údaje(DB_*) v súbore '.env' v root adresári projektu pre úspešné pripojenie k databáze</li>
+			</ol>
+		</li>
+		</ul>
+
+<h2>Známe problémy</h2>
+<p>
+	Projekt nezahŕňa možnosť rozlosovania zápasov turnaja.
+</p>
+
+</body>
+</html>
