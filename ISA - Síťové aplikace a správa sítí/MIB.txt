@@ -1,0 +1,64 @@
+MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	OBJECT-TYPE, Integer32, experimental,
+	MODULE-IDENTITY                       FROM SNMPv2-SMI
+	DisplayString			      FROM SNMPv2-TC				
+	MODULE-COMPLIANCE, OBJECT-GROUP       FROM SNMPv2-CONF;
+
+xweisd00NetSnmpMIB MODULE-IDENTITY
+    LAST-UPDATED "202011182000Z"    
+    ORGANIZATION "net-snmp"
+    CONTACT-INFO "Email: xweisd00@fit.vutbr.cz"
+    DESCRIPTION  "Simple MIB for ISA project VUT FIT"
+    ::= { experimental 22 }
+
+
+nstAgentLoginObject OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+	"This is an object that simply supports a writable integer
+	 when compiled into the agent.  See
+	 http://www.net-snmp.org/tutorial-5/toolkit/XXX for further
+	 implementation details."
+    ::= { xweisd00NetSnmpMIB 1 }
+
+nstAgentDateTimeObject OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+	"This is an object that simply supports a writable integer
+	 when attached to the agent.  The object should be accessible
+	 when the agentx subagent containing this object is attached.
+	 See http://www.net-snmp.org/tutorial-5/toolkit/XXX for
+	 further implementation details."
+    ::= { xweisd00NetSnmpMIB 2 }
+
+nstAgentReadWriteObject OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object that simply supports a writable integer
+	 when attached to the agent.  This object should be accessible
+	 when the dynamic plugin has been loaded into the agent.  See
+	 http://www.net-snmp.org/tutorial-5/toolkit/XXX for further
+	 implementation details."
+    ::= { xweisd00NetSnmpMIB 3 }
+
+nstAgentInputObject OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+	"This is an object that simply supports a writable integer
+	 when attached to the agent.  This object should be accessible
+	 when the dynamic plugin has been loaded into the agent.  See
+	 http://www.net-snmp.org/tutorial-5/toolkit/XXX for further
+	 implementation details."
+    ::= { xweisd00NetSnmpMIB 4 }
+
+END

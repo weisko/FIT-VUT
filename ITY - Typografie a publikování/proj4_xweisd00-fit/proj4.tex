@@ -1,0 +1,92 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm, top=3cm, text={17cm, 24cm}]{geometry}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks = true, hypertexnames = false}
+
+\begin{document}
+
+	\begin{titlepage}
+		\begin{center}
+			\Huge
+			\textsc{Vysoké učení technické v~Brně} \\
+			\huge
+			\textsc{Fakulta informačních technologií} \\
+			\vspace{\stretch{0.382}}
+			\LARGE
+			Typografie a~publikování\,--\,4.~projekt \\
+			\Huge
+			Bibliografické citace
+			\vspace{\stretch{0.618}}
+		\end{center}
+
+		{\Large
+			\today
+			\hfill
+			Daniel Weis
+		}
+	\end{titlepage}
+
+
+	
+	\section{Systém \LaTeX}
+
+	\subsection{Úvod}
+	Jedna z~oblastí ludskej činnosti, ktorú výrazne poznamenalo rošírenie osobných počítačov, je zpracovanie 	textov. Dá sa povedať, že prakticky neexistuje osobný počítač, na ktorom by nebol k~dispozícii textový 			editor alebo niektorý z~produktov kategórie DTP - Desk Top Publishing. Počítačom sa dá rychlo a~ 				efektívne vytvoriť to, čo predtým vznikalo len za použití složitej technológie a~za značnej spotreby 			materíalu. \cite{Rybicka2003}.
+	\subsection{Prečo {\LaTeX} namiesto Word-e}
+	Především vás LaTeX neomezuje jako tyto editory. Stejně jako při tvorbě internetových stránek můžeme psát HTML kód, nebo si hrát s Frontpagem, stejně tak působí využívání LaTeXu oproti těmto editorům, které se stejně jako u HTML nazývají WYSIWYG (What you see is what you get). \cite{Simecek2013}
+
+	\subsection{Možnosti a obmedzenia v~{\LaTeX}e}
+	Ako každý počítačový program, tak aj tento má množstvo výhod, ale bohužial aj nevýhod. Záleží však na každom užívateľovi, či využije možností, ktoré mu program ponúka, alebo sa nimi nechá obmedziť.
+	\subsubsection{Možnosti}	
+	\begin{itemize}
+		\item Užívateľ nemusí byť profesionál v oblasti programovaní a typografickej sadzby, napriek tomu je schopný členiť text pomocou lahko zrozumitelných príkazov.
+		\item Systém je stabilný — od roku 1986 sa prakticky nezmenil.
+		\item Ľahké vytváranie tabuliek, vkladanie poznámok pod čiaru, pisanie rovníc, vkladanie obrázkov.
+	\end{itemize}
+	
+	\subsubsection{Obmedzenia}
+	\begin{itemize}
+		\item {\TeX} sa síce dokáže prispôsobiť národnému prostrediu, musí mu to byť ale \uv{povedané}. Nedokáže však opraviť chyby v~texte.
+		\item Zvládne len veľmi jednoduché výpočty, nieje vlastne určený k matematickým výpočtom, ale k sadzbe (nielen) matematiky.
+	\end{itemize}
+	Podrobnější informace o~tom, aké sú možnosti a~obmedzenia sa možno dočítať v~\cite{Solcova2012}.
+
+
+	\subsection{Niečo naviac k {\LaTeX}e}
+	Na stánke \cite{Martinek2010} je možnošť dočitať sa o špecialitách ktoré v učebniciach nenájdete. Nájdete tam údaje o zaujímavých balíčkoch a postupoch.
+
+
+	\subsection{Úvodzovky v~{\LaTeX}e}
+	V čestine sa z pravidla používajú uvodzovky typu (\uv{ }). Taktiež sa použivajú uvodzovky typu {(' ,)}, z pravidla pre vysvetlenie iného významu slova. V angličtine sa používaju dva typy úvodzoviek: (`` ''), v tlači sa pripúštajú aj úvodzovky typu (` ''). \cite{Olsak1997}
+	
+	
+	\subsection{Co je Hyper\TeX}
+	Hyper{\TeX} je súhrnný názov pre skupinu maker, ktoré umožňujú vsunúť do .dvi súboru odkazy na iné časti dokumentu. Odkazy sú do .dvi súboru sú dopravené pomocou primitívu \texttt{special} \cite{Neme2003}.
+
+
+	\subsection{Abstraktné fonty v typografii}
+	Webstránka \cite{Demaine2015} vám umožní nahliadnuť aj do veselšej \uv{stránky} typografie, nájdete v nej mnoho zábavných, netradicných druhov písma, ktoré takťiež možno využiť pri tvorbe dokumentov.
+
+
+	\subsection{Matematika v~{\LaTeX}e}
+	kniha \cite{George1996} je pre matematikov, inžinierov, strojárov, vedcov, alebo pre technyckých pisárov, ktorý chcú písať a vysádzať články obsahujúce matematické vzorce. Existujú dokonca aj nástroje, ktoré z~ručne písaného textu dokážu vygenerovat zdrojový kód pre \LaTeX \cite{Oksuz2008}.
+\par Príklad vysádzanej zložitejšej rovnice \cite{Bojko2011}
+	$$
+	f=
+	\sin^2\alpha\frac{
+	\int\limits_1^2
+	\sqrt{1+\left(\frac{(x^6-1)^2}{2x^3}\right)^3}
+	dx}
+	{\frac{3x}{x^2}}+
+	(\sin\beta - \cos\alpha)
+	$$
+
+	\newpage
+	\bibliographystyle{czechiso}
+	\renewcommand{\refname}{Literatura}
+	\bibliography{proj4}
+
+\end{document}

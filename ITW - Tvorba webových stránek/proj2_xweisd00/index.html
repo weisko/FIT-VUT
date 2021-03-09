@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/568da1f261.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <div class="nav" id="navBar">
+                <ul>
+                    <li class="icon" onclick="myfunc()"><i class="fa fa-bars"></i></li>
+                    <li><a href="#about" class="navItem">About me</a></li>
+                    <li><a href="#education" class="navItem">Education</a></li>
+                    <li><a href="#skills_projects" class="navItem">Skills & Projects</a></li>
+                    <li><a href="#contact" class="navItem">Contact</a></li>
+                </ul> 
+            </div>
+            <h1 id="name"><a href="#">Daniel Weis</a></h1>
+            <div class="profile">
+                <img src="img/profile_photo.jpg" alt="profilePhoto" id="photo">
+            </div>
+        </header>
+        <section id="about">
+            <h2>About me</h2>
+            <hr>
+            <div class="aboutDiv">
+                <div class="aboutOne">
+                    <h3>Early life</h3>
+                    <p>My name is Daniel. I'm from a smaller town on southeast of slovakia called Nove Zamky.
+                        I was always crafty person, working with grandad in garage or just dissasambling all kind of stuff. 
+                        Aroud 12 I started getting into computer science and that was a time when my road of an IT guy started.
+                        I chose and IT high school to develope some of crucial skill in various branches of information technologies.
+                    </p>
+                </div>
+                <div class="aboutTwo">
+                    <h3>Present</h3>
+                    <p>I'm mostly a programmer but I also do have experience with CCNA Routing and Switching. 
+                        I've programmed in C, C++, C#, JS , Python, PHP, XAML, Oracle SQL, Assembly Language. 
+                        I speak English, Slovak, Hungarian, Czech fluently and understand basics of Russian. 
+                        I'm becoming an information technology professional witch Bachelor's degree at Brno 
+                        University of Technology on faculty of Information Technology. </p>
+                </div>
+            </div>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <hr>
+            <h3><a href="https://www.fit.vut.cz/">Faculty of Information Technology, Brno University of Technology</a></h3>
+            <p class="subhead">Information technologies - Bachelor of science </p>
+            <p class="years">2017 - current</p>
+            <h3><a href="https://spojenaskolanz.edupage.org/">High school: SPŠE S. A. Jedlíka</a></h3>
+            <p class="subhead">Basics of Informatics and networking technologies</p>
+            <p class="years">2013 - 2017</p>
+        </section>
+        <section id="skills_projects">
+            <div class="skills" id="skillsDiv">
+                <h2>Skills & Projects</h2>
+                <hr>
+                <ul>
+                    <li>
+                        <i class="devicon-c-plain"></i>
+                        <h4>c</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-cplusplus-plain"></i>
+                        <h4>c++</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-csharp-plain"></i>
+                        <h4>c#</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-python-plain"></i>
+                        <h4>python</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-css3-plain"></i>
+                        <h4>css3</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-html5-plain"></i>
+                        <h4>html5</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-git-plain"></i>
+                        <h4>git</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-php-plain"></i>
+                        <h4>php</h4>
+                    </li>
+                    <li>
+                        <i class="devicon-oracle-plain"></i>
+                        <h4>oracle db</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="projectDiv" id="projectsDiv">
+                <div class="project" onclick="window.open('https://github.com/weisko?tab=repositories')">
+                    <img src="img/project_img.jpg" alt="fifkaImg">
+                    <h3>RandomProj1</h3>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consequat egestas ex, 
+                        in ullamcorper erat sagittis quis. In euismod tempor quam in mattis.</p>
+                </div>
+                <div class="project" onclick="window.open('https://github.com/weisko?tab=repositories')">
+                    <img src="img/project_img.jpg" alt="fitterImg">
+                    <h3>RandomProj2</h3>
+                    <p class="text"> Nulla facilisi. Aenean elit urna, semper a elementum non, aliquam gravida arcu.</p>
+                </div>
+                <div class="project" onclick="window.open('https://github.com/weisko')">
+                    <img src="img/project_img.jpg" alt="gitImage">
+                    <h3>Github</h3>
+                    <p class="text">Aenean vitae varius elit. Morbi egestas, sem id lacinia euismod, odio arcu porta leo, quis convallis massa enim a dolor</p>
+                </div>
+            </div>
+        </section>
+        <footer id="contact">
+            <h2>Contact</h2>
+            <hr>
+            <ul>
+                <li><a href="https://www.instagram.com/weisko/"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/d.weis0"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/daniel-weis-1466141a2/"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/weisko"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <a href="mailto:danko12313@gmail.com" class="mail">xweisd00@vutbr.cz</a>
+        </footer>
+        <script>
+            window.onscroll = function() {scrollNav()};
+            var navbar = document.getElementById("navBar");
+            var image = document.getElementById("name");
+            var fix = image.offsetTop-50;
+            function scrollNav() {
+                if (window.pageYOffset >= fix) {
+                    navbar.classList.add("fix");
+                } else {
+                    navbar.classList.remove("fix");
+                }
+            };
+            function myfunc() {
+                var x = document.getElementById("navBar");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            }
+            $(document).ready(function(){
+                $("a").on('click', function(event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 1200, function(){
+                            window.location.hash = hash;
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,182 @@
+#!/bin/sh
+
+POSIXLY_CORRECT=yes
+
+#export WEDI_RC=$HOME/.config/wedirc
+
+#kontrola WEDI_RC
+if [ -z "$WEDI_RC" ]; then
+   echo "ERROR: WEDI_RC neexistuje">&2
+   elif [ ! -d "$WEDI_RC" ]; then
+	mkdir -p `dirname $WEDI_RC`
+	touch $WEDI_RC
+fi
+
+#kontrola TOOL
+if [ -z "$EDITOR" ]; then
+   tool=$VISUAL
+elif [ -z "$VISUAL" ]; then
+   tool=$EDITOR
+else 
+   tool=$EDITOR
+fi
+if [ -z "$EDITOR" ] && [ -z "$VISUAL" ]; then
+   echo "ERROR: Nebol zadani ani EDITOR ani VISUAL">&2
+   tool=vi
+fi
+
+
+#funkcie...........................................................................................
+edit() {
+   $1 "$2" #do $1 sa ulozi tool, do $2 sa ulozi 1.arg 
+   echo "$(realpath "$2") ; $(date +%Y-%m-%d)" >> "$WEDI_RC" #ulozi do wedirc spustenie scriptu
+}
+
+
+#volanie funkcii.................................................................................
+if [ "$#" -eq 1 ]; then  # ak je jeden argument
+    if [ -f "$1" ] ; then  # ak je to file
+       edit $tool "$1"
+    elif [ -d "$1" ]; then # ake je to directory
+       prem=`grep "$1/[^/]*$" "$WEDI_RC" | tail -1 | cut -d";" -f 1` # odstrihnuta adresa do ineho adresara
+       $tool "$prem"
+       echo "$(realpath "$prem") ; $(date +%Y-%m-%d)" >> "$WEDI_RC" #ulozi do wedirc spustenie last
+    fi	
+fi
+
+if [ "$#" -eq 1 ] && [ "$1" = "-m" ]; then  # ako je iba -m tak aktualny adresar
+   trasa1=`pwd`
+   prem1=`grep "$trasa1/[^/]*$" "$WEDI_RC" | cut -d";" -f 1 | sort | uniq -c | sort | tail -1 | cut -c 9-`
+   $tool "$prem1"
+   echo "$(realpath "$prem1") ; $(date +%Y-%m-%d)" >> "$WEDI_RC"
+fi   
+
+if [ "$#" -eq 2 ] && [ "$1" = "-m" ] && [ -d "$2" ]; then # -M najcastejsie upraveny v zadanom adresary
+   prem2=`grep "$2/[^/]*$" "$WEDI_RC" | cut -d";" -f 1 | sort | uniq -c | sort | tail -1 | cut -c 9-`
+   $tool "$prem2"
+   echo "$(realpath "$prem2") ; $(date +%Y-%m-%d)" >> "$WEDI_RC" 
+fi
+
+if [ "$#" -eq 0 ]; then # ak nieje arg / posledne upravovany v aktualnom adresary
+   trasa=`pwd`
+   prem3=`grep "$trasa/[^/]*$" "$WEDI_RC" | tail -1 | cut -d";" -f 1`
+   $tool "$prem3"
+   echo "$(realpath "$prem3") ; $(date +%Y-%m-%d)" >> "$WEDI_RC"	   
+fi
+
+if [ "$#" -eq 2 ] && [ "$1" = "-l" ] && [ -d "$2" ]; then # -L vypis upravovanych suborov v danom adresary
+   prem4=`grep "$2/[^/]*$" "$WEDI_RC" | cut -d";" -f 1 | rev | cut -d"/" -f1 | rev | cut -d" " -f1 | sort | uniq`
+   echo "$prem4"
+fi
+
+if [ "$#" -eq 1 ] && [ "$1" = "-l" ]; then # -L vypis upravovanych suborov v aktualnom adresary
+   trasa2=`pwd`
+   prem5=`grep "$trasa2/[^/]*$" "$WEDI_RC" | cut -d";" -f 1 | rev | cut -d"/" -f1 | rev | cut -d" " -f1 | sort | uniq`
+   echo "$prem5"
+fi
+
+#.....................................................A...................................................................
+if [ "$#" -eq 3 ] && [ "$1" = "-a" ] && [ -n "$2" ] && [ -d "$3" ]; then
+   prem5=`grep "$3/[^/]*$" "$WEDI_RC" | tr -d "-" | sort | uniq`	
+
+   prem6=`grep "$3/[^/]*$" "$WEDI_RC" | rev | cut -d";" -f 1 | cut -d" " -f 1 | rev | tr -d "-" | sort | uniq`  
+    
+   zadanecislo=$(date -d "$2" +"%Y%m%d")
+   
+   for date in $prem6
+	do
+	case $1 in           
+	"-a")
+                if [ "$date" -ge "$zadanecislo" ]; then 
+		   echo "$prem5" | grep "$date" | cut -d";" -f 1 | rev | cut -d"/" -f 1 | rev 
+		fi
+                ;;
+	  *)
+		exit 1
+		;;
+		esac
+	done | sort | uniq 	
+fi
+#..................................................A no dir..............................................................
+if [ "$#" -eq 2 ] && [ "$1" = "-a" ] && [ -n "$2" ]; then
+   trasaY=`pwd`
+   prem5=`grep "$trasaY/[^/]*$" "$WEDI_RC" | tr -d "-" | sort | uniq`	
+
+   prem6=`grep "$trasaY/[^/]*$" "$WEDI_RC" | rev | cut -d";" -f 1 | cut -d" " -f 1 | rev | tr -d "-" | sort | uniq`  
+    
+   zadanecislo=$(date -d "$2" +"%Y%m%d")
+ 
+   for date in $prem6
+	do
+	case $1 in           
+	"-a")
+                if [ "$date" -ge "$zadanecislo" ]; then 
+		   echo "$prem5" | grep "$date" | cut -d";" -f 1 | rev | cut -d"/" -f 1 | rev 
+		fi
+                ;;
+	  *)
+		exit 1
+		;;
+		esac
+	done | sort | uniq 	
+fi
+
+#..................................................B.....................................................................
+if [ "$#" -eq 3 ] && [ "$1" = "-b" ] && [ -n "$2" ] && [ -d "$3" ]; then
+   prem5=`grep "$3/[^/]*$" "$WEDI_RC" | tr -d "-"`	
+
+   prem6=`grep "$3/[^/]*$" "$WEDI_RC" | rev | cut -d";" -f 1 | cut -d" " -f 1 | rev | tr -d "-"`  
+
+   zadanecislo=$(date -d "$2" +"%Y%m%d")
+   
+   for date in $prem6
+	do
+	case $1 in
+	"-b")
+                if [ "$date" -lt "$zadanecislo" ]; then
+		   echo "$prem5" | grep "$date" | cut -d";" -f 1 | rev | cut -d"/" -f 1 | rev
+		fi
+                ;;            
+	  *)
+		exit 1
+		;;
+		esac
+	done | sort | uniq		
+fi
+#...............................................................B no dir...........................................
+if [ "$#" -eq 2 ] && [ "$1" = "-b" ] && [ -n "$2" ]; then
+   trasaX=`pwd`
+   prem5=`grep "$trasaX/[^/]*$" "$WEDI_RC" | tr -d "-"`	
+
+   prem6=`grep "$trasaX/[^/]*$" "$WEDI_RC" | rev | cut -d";" -f 1 | cut -d" " -f 1 | rev | tr -d "-"` 
+   
+   zadanecislo=$(date -d "$2" +"%Y%m%d")
+   
+   for date in $prem6
+	do
+	case $1 in
+	"-b")
+                if [ "$date" -lt "$zadanecislo" ]; then
+		   echo "$prem5" | grep "$date" | cut -d";" -f 1 | rev | cut -d"/" -f 1 | rev
+		fi
+                ;;            
+	  *)
+		exit 1
+		;;
+		esac
+	done | sort | uniq		
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,238 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    min-width: 300px;
+    margin: 0;
+}
+body {
+    margin: 0;
+    background: #FEFFFF;;
+    font-size: 1rem;
+}
+h2 {
+    padding-top: 60px;
+    color: #17252A;
+    font-weight: 600;
+    text-align: center;
+    font-size: 3rem;
+}
+a {
+    text-decoration: none;
+    color: rgb(143, 25, 25);
+    opacity: 0.8;
+    outline: none;
+}
+header {
+    background-image: linear-gradient(45deg,rgb(143, 25, 25), rgb(175, 111, 58));
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#navBar {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    transition: 1000ms;
+    width: 100%;
+}
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+.nav li:first-child {
+    display: none;
+}
+.nav li {
+    float: left;
+    padding: 14px 16px;
+}
+.navItem:hover {
+    color: #17252A;
+}
+.navItem {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #FEFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 0.05rem;
+}
+.fix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #3a3e42;
+    z-index: 99;
+    transition: 1000ms;
+}
+.profile img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid 10px rgba(0, 0, 0, 0.3);
+}
+h1 a{
+    color: inherit;
+}
+h1{
+    color: wheat;
+    font-size: 5rem;
+}
+/* ABOUT  */
+#about {
+    margin-bottom: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.aboutDiv {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.aboutDiv p {
+    max-width: 300px;
+}
+.aboutOne{
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    width: max-content;
+    text-align: center;
+    margin-right: 60px;
+}
+.aboutTwo {
+    font-size: 18px;
+    width: max-content;
+    text-align: center;
+    margin-left: 60px;
+}
+/* EDUCATION */
+#education{
+    background: #eee;
+    position: relative;
+    padding: 0 10% 70px;
+}
+h3 {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+.years {
+    text-align: left;
+    color: rgb(143, 25, 25);
+    font-size: 1rem;
+    font-style: italic;
+}
+/* SKILLS */
+#skills_projects {
+    padding: 0 10%;
+    margin: 0;
+    padding-bottom: 100px;
+}
+.skills {
+    text-align: center;
+}
+.skills li {
+    display: inline-block;
+    color: rgb(143, 25, 25);
+    margin: 0;
+    padding: 10px;
+}
+.skills li i {
+    font-size: 100px;
+}
+.skills ul {
+    list-style: none;
+}
+h4 {
+    margin: 0;
+    margin-top: 0px;
+    margin-top: 5px;
+    font-size: 13px;
+    text-align: center;
+}
+.skills li:hover {
+    color: rgb(255, 115, 0);
+    cursor: pointer;
+}
+/* PROJECTS */
+.projectDiv{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 50px;
+    padding-top: 50px;
+}
+.project {
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 250px;
+    text-align: center;
+    float: left;
+    margin: 0 0 20px 50px
+}
+.project h3 {
+    margin: 5px 0 5px;
+    font-size: 2rem;
+}
+.project p {
+    margin: 0;
+    line-height: 1.3;
+    padding: 0 25px 25px;
+}
+.text {
+    color: #888;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.project:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.project img {
+    width: 100%;
+}
+/* FOOTER */
+footer {
+    background-color: #3a3e42;
+    padding-bottom: 60px;
+    text-align: center;
+    color: #FEFFFF;
+}
+footer h2 {
+    margin: 0;
+    padding-top: 60px;
+    color: inherit;
+    font-weight: 300;
+    opacity: 0.7;
+}
+footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 0;
+}
+footer li {
+    margin: 20px;
+}
+footer li i {
+    font-size: 30px;
+    color: #FEFFFF;
+    opacity: 0.3;
+}
+.mail {
+    margin: auto;
+    text-align: center;
+    color: inherit;
+    opacity: 0.3;
+}
+footer .mail:hover, li i:hover {
+    opacity: 1;
+    color: rgb(214, 96, 0);
+}
+footer hr {
+    color: whitesmoke;
+    height: 0;
+    opacity: 0.3;
+    width: 66%;
+    margin-top: 40px;
+}
